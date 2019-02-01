@@ -1,5 +1,3 @@
-
-require 'pry'
 class Student
 
 	attr_reader :first_name
