@@ -4,6 +4,7 @@ class Instructor
 
 	def initialize(name)
 		@name = name
+		@@all << self
 	end
 
 	def find_test(student, test_name)
