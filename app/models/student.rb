@@ -20,16 +20,25 @@ attr_accessor :first_name
 
   ##### Instance Methods #####
 
+
+
+  ##### add boating_test will create a new test when called on an instance of a student. the student will then be assigned to that test with the default Boating_test initializations.
+
   def add_boating_test(boating_test_name, boating_test_status, instructor)
     BoatingTest.new(self, boating_test_name, boating_test_status, instructor)
   end
 
+  ##### boating_tests #####
+  # this will return all the tests that a student has taken
 
   def boating_tests
     BoatingTest.all.select do |test|
        test.student == self
     end
   end
+
+  ##### grade_percentage #####
+  # this will get called on an instance of the student class and return the overall percentage of tested that have passed. 
 
   def grade_percentage
     passed_tests = 0
