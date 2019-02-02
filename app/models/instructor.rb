@@ -11,9 +11,9 @@ class Instructor
       if (boating_test.student == student) && (boating_test.test == test)
         boating_test.status == "passed"
         return boating_test
-      end
+      else
+        BoatingTest.new(student, test, "passed", self)
     end
-    BoatingTest.new(student, test, "passed", self)
   end
 
   def fail_student(student, test)
