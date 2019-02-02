@@ -36,7 +36,7 @@ class Student
         @passed_tests += 1
       end
     end
-    @percent_passed = @passed_tests.to_f / @total_tests.to_f
+    @percent_passed = (@passed_tests.to_f / @total_tests.to_f)*100
   end
 
 end
