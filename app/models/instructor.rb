@@ -16,7 +16,7 @@ class Instructor
   def pass_student(student, test_name)
   end
 
-  def fail_student(student, test_name)
-  end
+def fail_student(student, test_name)
+end
 
 end

@@ -17,13 +17,16 @@ class Student
     BoatingTest.new(self, name, status, instructor)
   end
 
-  def self.find_student(first_name)
+  def self.find_student(student_first_name)
     self.all.find do |student|
-      student.first_name == student.first_name
+      student.first_name == student_first_name
     end
   end
 
   def grade_percentage
+    student_tests = BoatingTest.all.find_all { |test| test.student.first_name == self.first_name}
+    passed_tests = student_tests.all.find_all { |test| test.status == "passed"}
+    final_percentage = (passed_tests.length.to_f) / (student_tests.length.to_f) * 100
   end
 
 end
