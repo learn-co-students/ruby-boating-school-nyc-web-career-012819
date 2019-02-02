@@ -8,7 +8,7 @@ class Instructor
 
   def pass_student(student, test)
     BoatingTest.all.select do |boating_test|
-      if (boating_test.student == student) && (boating_test.test == test)
+      if (boating_test.first_name == student) && (boating_test.test == test)
         boating_test.status == "passed"
         return boating_test
       else
@@ -18,12 +18,12 @@ class Instructor
 
   def fail_student(student, test)
     BoatingTest.all.select do |boating_test|
-      if (boating_test.student == student) && (boating_test.test == test)
+      if (boating_test.first_name == student) && (boating_test.test == test)
         boating_test.status == "failed"
         return boating_test
-      end
+      else
+      BoatingTest.new(student, test, "failed", self)
     end
-    BoatingTest.new(student, test, "failed", self)
   end
 
 
