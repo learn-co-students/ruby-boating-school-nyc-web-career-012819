@@ -9,10 +9,11 @@ class BoatingTest
     @test = test
     @status = status
     @instructor = instructor
+    @@all << self
   end
 
   def self.all
     @@all
-  end 
+  end
 
 end
