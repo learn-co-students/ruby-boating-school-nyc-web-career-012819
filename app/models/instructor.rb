@@ -38,16 +38,20 @@ class Instructor
   end
 
   ##### pass_student #####
-  # this will get called on a instance of the insructor class and will change a students boating_test_status from "fail" to "pass"
+  # this will get called on a instance of the insructor class and will change a students boating_test_status from "fail" to "pass" if no tests exist a new one will be created
 
   def pass_student(student, boating_test_name)
-    self.test_search(student, boating_test_name).map do|test|
-      test.boating_test_status = "pass"
+    if self.test_search(student, boating_test_name) == []
+      BoatingTest.new(student, boating_test_name, "pass", self)
+    else
+      self.test_search(student, boating_test_name).map do |test|
+        test.boating_test_status = "pass"
+      end
     end
   end
 
 ##### fail_student #####
-# this will get called on an instance of the instructor class and will change the the students boating_test_status from pass to fail. If a test does not exist  yet than a new one will be created and set to fail. 
+# this will get called on an instance of the instructor class and will change the the students boating_test_status from pass to fail. If a test does not exist  yet than a new one will be created and set to fail.
 
   def fail_student(student, boating_test_name)
     if self.test_search(student, boating_test_name) == []
