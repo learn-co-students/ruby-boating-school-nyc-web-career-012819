@@ -9,12 +9,12 @@ class Student
 		@@all << self
 	end
 
-	def add_boating_test(test_name, test_status, instructor)
-		BoatingTest.new(self, test_name, test_status, instructor)
+	def add_boating_test(test_name, status, instructor)
+		BoatingTest.new(self, test_name, status, instructor)
 	end
 
 	def grade_percentage
-		self.passed_tests.length.to_f / self.tests.length.to_f
+		passed_tests.length.to_f / self.tests.length.to_f
 	end
 
 	def tests
@@ -22,7 +22,7 @@ class Student
 	end
 
 	def passed_tests
-		self.tests.select { |test| test.test_status == "passed" }
+		tests.select { |test| test.status == "passed" }
 	end
 
 	def self.find_student(first_name)

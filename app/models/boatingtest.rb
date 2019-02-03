@@ -1,7 +1,6 @@
 class BoatingTest
 
-	attr_accessor :status
-	attr_reader :student, :name
+	attr_reader :student, :name, :status
 
 	@@all = []
 
@@ -11,6 +10,10 @@ class BoatingTest
 		@status = status
 		@instructor = instructor
 		@@all << self
+	end
+
+	def set_status(status)
+		@status = status
 	end
 
 	def self.all
