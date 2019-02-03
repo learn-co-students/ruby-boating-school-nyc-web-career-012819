@@ -16,6 +16,12 @@ attr_accessor :first_name
     @@all
   end
 
+  def self.find_student(first_name)
+    self.all.find do |student|
+      student.first_name == first_name
+    end
+  end
+
 
 
   ##### Instance Methods #####
@@ -38,7 +44,7 @@ attr_accessor :first_name
   end
 
   ##### grade_percentage #####
-  # this will get called on an instance of the student class and return the overall percentage of tested that have passed. 
+  # this will get called on an instance of the student class and return the overall percentage of tested that have passed.
 
   def grade_percentage
     passed_tests = 0
