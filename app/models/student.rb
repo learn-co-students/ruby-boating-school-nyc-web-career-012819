@@ -14,7 +14,7 @@ class Student
 	end
 
 	def grade_percentage
-		passed_tests.length.to_f / tests.length.to_f
+		((passed_tests.length.to_f*100) / tests.length.to_f).round(2)
 	end
 
 	def tests
