@@ -1,19 +1,19 @@
+class Instructor < ActiveRecord::Base
+  has_many :boating_tests
+  has_many :students, through: :boating_tests
 
-
-class Instructor
-
-  attr_accessor :name
-
-  @@all = []
-
-  def initialize(name)
-    @name = name
-    @@all << self
-  end
-
-  def self.all
-    @@all
-  end
+  # attr_accessor :name
+  #
+  # @@all = []
+  #
+  # def initialize(name)
+  #   @name = name
+  #   @@all << self
+  # end
+  #
+  # def self.all
+  #   @@all
+  # end
 
   def pass_student(student, test_name)
     passed_test = BoatingTest.all.find { |test| test.student.first_name == student.first_name && test.name == test_name}
